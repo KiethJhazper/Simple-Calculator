@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<HEAD>
+	<title>Simple Calculator</title>
+	<link rel="stylesheet" type="text/css" href="Style.css"/>
+</HEAD>
+<body> 
+    <div class = "main">
+        <div class = "top-section">
+            <p class = "p1">Simple Calculator</p>
+        </div>
+        <table class = "table">
+            <tr>
+                <td>
+                    <input type="text" id="num1" placeholder="Enter first number">
+            </td>
+                <td>
+                    <input type="text" id="num2" placeholder="Enter Second number">
+                </td>
+            </tr>
+        </table>
+        <button id = "button" onclick="add()">+</button>
+        <button id = "button" onclick="subtract()">-</button>
+        <button id = "button" onclick="multiply()">x</button>
+        <button id = "button" onclick="divide()">/</button><br>
+        <div class = "result">
+            <p><span id="result"></span></p>
+        </div>
+        <button id = "clear" onclick="clear_()">Clear</button>
+        <script>
+            function clear_(){
+            document.getElementById("num1").value = ""
+            document.getElementById("num2").value = ""
+            document.getElementById("result").innerHTML = ""
+            }
+            function calculate(operator){
+                var num1 = parseFloat(document.getElementById("num1").value)
+                var num2 = parseFloat(document.getElementById("num2").value)
+                var result = eval(num1 + operator + num2)
+                document.getElementById("result").innerHTML = num1 + " " + operator + " " + num2 + " = " + result
+            }
+            function add(){
+                calculate("+")
+            }
+            function subtract(){
+                calculate("-")
+            }
+            function multiply(){
+                calculate("*")
+            }
+            function divide(){
+                calculate("/")
+            }
+        </script>
+    </div>
+</body>
+</html>
